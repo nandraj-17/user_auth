@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+    <style>
+        .success{
+          color:blue;
+        }
+    </style>
+   <!-- Including Bootstrap CSS -->
+	<link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- Including jQuery -->
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
+	</script>
+
+	<!-- Including Bootstrap JS -->
+	<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+	</script>
+</head>
+<body style="height:100%">
+<h1>MEME's</h1>
+<h3>Welcome {{name}}</h3>
+{% if messages %}
+    {% for message in messages %}
+        <small {% if message.tags %} class="{{message.tag}}" {% endif %}> {{message}} </small>
+    {% endfor %}
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
+<br><br>
+<div>
+    <img src="{% static 'MYAPPPRO/img/cath01.png' %}" alt="catch meme" width="200px" height="300px" border="5px">
+    <img src="{% static 'MYAPPPRO/img/rbt01.png' %}" alt="rebbtn meme" width="200px" height="300px" border="5px">
+    <img src="{% static 'MYAPPPRO/img/hol01.png' %}" alt="hole meme" width="300px" height="200px" border="5px">
+    <img src="{% static 'MYAPPPRO/img/tha01.png' %}" alt="tha meme" width="300px" height="200px" border="5px">
+    <img src="{% static 'MYAPPPRO/img/tns01.png' %}" alt="tens meme" width="300px" height="200px" border="5px">
+</div>
+<!---<div id="alert">
+
+   The {{name}} cookie is saved for beter performance!!!
+
+</div>--->
+<div id="alert" class="alert alert-success">
+		The {{name}} cookie is saved for beter performance!!!
+	</div>
+<script type="text/javascript">
+		setTimeout(function () {
+debugger;
+			// Closing the alert
+			$('#alert').alert('close');
+		}, 5000);
+	</script>
+</body>
+</html>
